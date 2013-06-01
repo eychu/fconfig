@@ -1,3 +1,4 @@
+require 'rspec'
 require 'fconfig'
 
 describe Fconfig, "#build" do
@@ -7,6 +8,7 @@ describe Fconfig, "#build" do
         {key: 'value'}
       end
     end
-    assert_eq 'value', c.key 
+    p c.inspect
+    'value'.should eq(c[:key]) 
   end
 end
