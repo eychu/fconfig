@@ -1,6 +1,5 @@
 module Fconfig
   class Builder
-
     def self.build(env, block)
       b = new(env, block)
       b.config
@@ -17,8 +16,7 @@ module Fconfig
     end
 
     def config
-      p @envs[@env].inspect
-      #Config.new @envs[@env]
+      Config.new @envs[@env]
     end
   end
 end

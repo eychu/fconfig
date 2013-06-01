@@ -15,7 +15,6 @@ module Fconfig
     end
 
     def method_missing(meth, *args, &block)
-      p '!'+args.inspect
       if block_given?
         @hash[meth] = Proxy.build block
       else

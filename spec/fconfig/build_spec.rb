@@ -8,8 +8,7 @@ describe Fconfig, "#build" do
         key 'value'
       end
     end
-    #p c.inspect
-    'value'.should eq(c.key)
+    expect('value').to eq(c.key)
   end
 
   it "return group value" do
@@ -21,7 +20,26 @@ describe Fconfig, "#build" do
         end
       end
     end
-    #p c.inspect
-    'v2'.should eq(c.group1.k2)
+    expect('v1').to eq(c.k1)
+    expect('v2').to eq(c.group1.k2)
+  end
+
+  it "return group value" do
+    c = Fconfig.build :prod do
+      env :develop do
+        k1 'v1'
+        group1 do
+          k2 'v2'
+        end
+      end
+      env :prod do
+        k1 'vp1'
+        group1 do
+          k2 'vp2'
+        end
+      end
+    end
+    expect('vp1').to eq(c.k1)
+    expect('vp2').to eq(c.group1.k2)
   end
 end
