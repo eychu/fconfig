@@ -8,8 +8,8 @@ describe Fconfig, "#build" do
         key 'value'
       end
     end
-    p c.inspect
-    'value'.should eq(c[:key]) 
+    #p c.inspect
+    'value'.should eq(c.key)
   end
 
   it "return group value" do
@@ -21,7 +21,7 @@ describe Fconfig, "#build" do
         end
       end
     end
-    p c.inspect
-    'value'.should eq(c.key) 
+    #p c.inspect
+    'v2'.should eq(c.group1.k2)
   end
 end

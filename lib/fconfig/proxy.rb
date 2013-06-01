@@ -1,23 +1,25 @@
 module Fconfig
-  class Proxy < BasicObject
+  class Proxy #< BasicObject
+
+    attr_reader :hash
 
     def initialize(block)
-      p 'adgsdgsrhstsrtu'
-      hash = {}
+      @hash = {}
       instance_eval &block
-      hash
+      @hash
     end
 
     def self.build(block)
-      new block
+      b = new block
+      b.hash
     end
 
-    def self.method_missing(meth, *args, &block)
-      p 'adgsdgsrhstsrtu'
+    def method_missing(meth, *args, &block)
+      p '!'+args.inspect
       if block_given?
-        hash[meth] = Proxy.build block
+        @hash[meth] = Proxy.build block
       else
-        hash[meth] = args[0];
+        @hash[meth] = args[0]
       end
     end
   end

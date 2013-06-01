@@ -18,7 +18,7 @@ module Fconfig
 
     def config
       p @envs[@env].inspect
-      Config.new @envs[@env]
+      #Config.new @envs[@env]
     end
   end
 end
