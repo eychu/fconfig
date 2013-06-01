@@ -4,8 +4,9 @@ require 'fconfig'
 describe Fconfig, "#build" do
   it "return key value" do
     c = Fconfig.build do
-      env :dev do
-        {key: 'value'}
+      env :develop do
+        key 'value'
+        lunljn 8
       end
     end
     p c.inspect
