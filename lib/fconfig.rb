@@ -1,13 +1,11 @@
-require "fconfig/version"
+require 'fconfig/version'
+require 'fconfig/builder'
+require 'fconfig/proxy'
 
 module Fconfig
-
-  def self.build &block
-    instance_eval &block
-  end
-
-  def self.env env, &block
-    instance_eval &block
+  def self.build(env, &block)
+    builder = Builder.new env, block
+    builder.data
   end
 end
 
