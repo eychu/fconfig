@@ -1,11 +1,12 @@
 require 'fconfig/version'
-require 'fconfig/builder'
-require 'fconfig/proxy'
 
 module Fconfig
+  autoload :Builder, 'fconfig/builder'
+  autoload :Proxy,   'fconfig/proxy'
+  autoload :Config,   'fconfig/config'
+
   def self.build(env, &block)
-    builder = Builder.new env, block
-    builder.data
+     data = Builder.build env, block
   end
 end
 
